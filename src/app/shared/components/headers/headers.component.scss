@@ -1,0 +1,77 @@
+.mat-toolbar {
+    min-width: 320px;
+}
+
+.header-title {
+    text-align: center;
+    color: #3aa7db;
+    margin: auto;
+    padding-left: 150px;
+    cursor: pointer;
+}
+
+.header-title-onLogin {
+    padding-left: 0px !important;
+}
+
+@media screen and (max-width:575px) {
+    .header-title {
+        padding-left: 0px;
+    }
+}
+
+.mat-toolbar h1 {
+    font-family: 'TitilliumWeb-Bold', 'sans-serif' !important;
+}
+
+.mat-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.matMenu {
+    padding-left: 0px !important;
+}
+
+.header-btn {
+    min-width: 34px;
+    padding: 0;
+}
+
+.header-btns {
+    position: absolute;
+}
+
+.header-btns-right {
+    position: absolute;
+    right: 15px;
+}
+
+.language-logo {
+    margin: 10px 3px 0;
+    height: 20px;
+    cursor: pointer;
+}
+
+.language-logo-menu {
+    height: 20px;
+    margin: 0px 6px -5px 0px;
+    cursor: pointer;
+}
+
+.check-icon-menu {
+    padding-left: 25px;
+    margin-right: 0px !important;
+}
+
+@media screen and (min-width:575px) {
+    #menu-btn {
+        display: none;
+    }
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    width: 100vw !important;
+}

@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <div>
+        <h3>{{ 'create.title' | translate }}</h3>
+        <div *ngIf="!next">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+                <mat-form-field>
+                    <input matInput formControlName="title" placeholder="{{ 'form.title' | translate }}" required>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>{{'form.select-site' | translate}}</mat-label>
+                    <mat-select formControlName="site" required>
+                        <mat-option *ngFor="let site of sites" [value]="site.site_code_legacy">
+                            {{site.siteName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <!-- Date picker -->
+                <mat-form-field>
+                    <input matInput [matDatepickerFilter]="myFilter" (focus)="picker.open()" [min]="currentDate"
+                        [matDatepicker]="picker" placeholder="{{ 'form.datestart' | translate }}" required
+                        formControlName="dateStart">
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                    <!-- <mat-error *ngIf="isFieldInvalid('dateStart')">
+              {{ 'form.errordate' | translate }}
+            </mat-error> -->
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput [matDatepickerFilter]="myFilter" (focus)="picker2.open()" [matDatepicker]="picker2"
+                        [min]="currentPreviousDate" placeholder="{{ 'form.dateend' | translate }}" required
+                        formControlName="dateEnd">
+                    <mat-datepicker-toggle matSuffix [for]="picker2">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker2></mat-datepicker>
+                    <!-- <mat-error *ngIf="isFieldInvalid('dateStart')">
+              {{ 'form.errordate' | translate }}
+            </mat-error> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput formControlName="comment"
+                        placeholder="{{ 'form.comment' | translate }}"></textarea>
+                </mat-form-field>
+
+                <button class="btn-form" mat-raised-button>{{ 'form.next' | translate }}</button>
+            </form>
+        </div>
+
+        <!-- ajouter le ngif next -->
+        <div class="form-container" *ngIf="next">
+            <app-schedule-device [campaign]="createdCampaign"></app-schedule-device>
+        </div>
+    </div>
+
+</div>

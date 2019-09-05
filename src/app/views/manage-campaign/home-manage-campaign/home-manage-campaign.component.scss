@@ -1,0 +1,48 @@
+.table-campaign {
+    font: 400 14px/20px TitilliumWeb, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+@media screen and (max-width: 575px) {
+    .table-campaign {
+        font: 400 11px/17px TitilliumWeb, sans-serif;
+    }
+}
+
+.table-campaign td,
+.table-campaign th {
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.table-campaign tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-campaign tr:hover {
+    background-color: #ddd;
+}
+
+.table-campaign th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #8ac238;
+    color: white;
+}
+
+.table-campaign th .btns-action {
+    text-align: center !important;
+}
+
+// .table-campaign td {
+//     cursor: pointer;
+// }
+
+.btn-action-result {
+    color: #3aa7db;
+    // cursor: pointer;
+    background-color: white;
+    border-radius: 50px;
+}

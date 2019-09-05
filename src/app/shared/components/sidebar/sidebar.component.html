@@ -1,0 +1,11 @@
+<div>
+    <div class="sidenav">
+        <a routerLinkActive="bg-light" routerLink="/home" class="font-weight-bold">{{'menu.home' | translate }}</a>
+        <!-- <a routerLinkActive="bg-light" routerLink="/result">{{'menu.result' | translate }}</a> -->
+        <a routerLinkActive="bg-light" routerLink="/manage">{{'menu.manage' | translate }}</a>
+        <mat-divider></mat-divider>
+        <a routerLinkActive="bg-light" style="cursor: pointer;" (click)="logout()">{{'login.logout' | translate }}</a>
+
+        <img style="position: absolute; bottom:80px;" width="150" alt="Reso Logo" src="/assets/img/resologo.png">
+    </div>
+</div>

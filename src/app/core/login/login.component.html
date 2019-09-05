@@ -1,0 +1,30 @@
+<div *ngIf="showFormInDev" class="signin-content">
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogon()">
+        <div class="alert alert-danger" [hidden]="!(error && !isLoading)">
+          {{ 'login.button' | translate }}
+        </div>
+        <p>{{ 'login.title' | translate }}</p>
+        <mat-form-field class="full-width-input">
+          <input matInput placeholder="{{ 'login.name' | translate }}" formControlName="username" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input matInput type="password" placeholder="{{ 'login.password' | translate }}" formControlName="password"
+            required>
+        </mat-form-field>
+        <button mat-raised-button class="reso-btn" [disabled]="loginForm.invalid || isLoading">
+          {{ 'login.button' | translate }}
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="!showFormInDev" class="signin-content">
+  <mat-card>
+    <mat-card-content *ngIf="isLoading">
+      <p>Single Sign On Identification</p>
+      <mat-spinner class="spinner-form"></mat-spinner>
+    </mat-card-content>
+  </mat-card>
+</div>

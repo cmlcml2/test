@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <button style="float:right;" mat-raised-button [routerLink]="[ '/manage/create' ]">Add campaign</button>
+  <h3>Liste Campagne Modifiable : </h3>
+
+  <ng-container *ngIf="!campaigns">
+    <mat-spinner class="spinner-form" *ngIf="!campaign"></mat-spinner>
+  </ng-container>
+
+  <ng-container *ngIf="campaigns">
+    <table class="table-campaign" dense>
+      <tr>
+        <th>Libelle</th>
+        <th>Site</th>
+        <th>Start date</th>
+        <th>End date</th>
+        <th *ngIf="!mobile">Comment</th>
+        <th>Edit</th>
+        <!-- <th>Result</th> -->
+      </tr>
+      <tr *ngFor="let campaign of campaigns">
+        <td>{{campaign.libelle}}</td>
+        <td>{{getLabelSite(campaign.site_code_legacy)}}</td>
+        <td>{{returnDate(campaign.date_start)}}</td>
+        <td>{{returnDate(campaign.date_end)}}</td>
+        <td *ngIf="!mobile">{{campaign.comment}}</td>
+        <td class="btns-action">
+          <mat-icon class="btn-action-result">edit
+          </mat-icon>
+        </td>
+      </tr>
+    </table>
+    <pre *ngIf="modeDebug">{{campaigns | json}}</pre>
+  </ng-container>
+</div>

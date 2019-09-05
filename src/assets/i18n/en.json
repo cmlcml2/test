@@ -1,0 +1,60 @@
+{
+    "language": {
+        "fr": "Français",
+        "en": "English"
+    },
+    "date": {
+        "from": "From",
+        "to": "To"
+    },
+    "menu": {
+        "home": "Home",
+        "result": "Result",
+        "campaign": "Campaign",
+        "manage": "Manage campaigns"
+    },
+    "login": {
+        "title": "Please login to continue",
+        "name": "Name",
+        "password": "Password",
+        "errorname": "Please inform your user name",
+        "errorpwd": "Please inform your password",
+        "button": "Login",
+        "logout": "Log out"
+    },
+    "device": {
+        "linked": "Linked device"
+    },
+    "result": {
+        "list-title": "Occupancy",
+        "morning": "Morning",
+        "afternoon": "Afternoon"
+    },
+    "chart": {
+        "global": {
+            "title": "Global occupancy by day",
+            "data-displayed": "Data displayed"
+        }
+    },
+    "form": {
+        "title": "Campaign title",
+        "comment": "Comments",
+        "date": "Choose a date",
+        "datestart": "Choose a start date",
+        "dateend": "Choose a end date",
+        "errordate": "Please inform a date",
+        "begtime": "From",
+        "errorbegtime": "Please inform a begining time",
+        "endtime": "To",
+        "errorendtime": "Please inform an ending time",
+        "timeerror": "End time must be superior to beginning time",
+        "search": "Search",
+        "next": "Next",
+        "select-site": "Select a site",
+        "valided": "Validate",
+        "ok": "Ok"
+    },
+    "create": {
+        "title": "Campaign creation"
+    }
+}

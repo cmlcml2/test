@@ -1,0 +1,20 @@
+.form-content {
+    display: flex;
+    flex-direction: row;
+    // justify-content: ;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.form-checkbox {
+    margin-right: 20px;
+}
+
+.form-comment {
+    flex-grow: 1;
+}
+
+.btn-form {
+    margin: auto;
+    display: block;
+}

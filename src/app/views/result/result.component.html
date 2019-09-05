@@ -1,0 +1,96 @@
+<div class="wrapper">
+    <!-- On peut utiliser le ngif pour eviter l'erreur cannot read properties of ... or utiliser l'opérator ?  -->
+    <ng-container *ngIf="campaign">
+        <h3>{{getSiteLabel(campaign.site_code_legacy)}} </h3>
+        <h4> {{campaign.libelle}}</h4>
+        <p>{{returnDate(campaign?.date_start)}} - {{returnDate(campaign?.date_end)}}</p>
+        <p>{{campaign?.comment}}</p>
+        <div class="list-with-heading">
+            <h3>{{'result.list-title' | translate}}</h3>
+            <ul>
+                <li> <span class="label">Total :</span>
+                    {{ roundedNumber((campaign.result.global.seatOccupied/ campaign.result.global.totalSeat) *100) }}
+                    %</li>
+                <li> <span class="label">{{'result.morning' | translate}} :</span>
+                    {{ roundedNumber((campaign.result.global.seatAMOccupied/ campaign.result.global.totalSeatAM) *100) }}
+                    %</li>
+                <li> <span class="label">{{'result.afternoon' | translate}} :</span>
+                    {{ roundedNumber((campaign.result.global.seatPMOccupied/ campaign.result.global.totalSeatPM) *100) }}
+                    %</li>
+            </ul>
+        </div>
+
+        <div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+
+                Filtrer sur la période :
+                <mat-form-field>
+                    <input matInput [matDatepickerFilter]="myFilter" (focus)="picker.open()" [min]="campaign.date_start"
+                        [max]="campaign.date_end" [matDatepicker]="picker"
+                        placeholder="{{ 'form.datestart' | translate }}" required formControlName="dateStart">
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input matInput [matDatepickerFilter]="myFilter" (focus)="picker2.open()" [matDatepicker]="picker2"
+                        [min]="currentPreviousDate" [max]="campaign.date_end"
+                        placeholder="{{ 'form.dateend' | translate }}" required formControlName="dateEnd">
+                    <mat-datepicker-toggle matSuffix [for]="picker2">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker2></mat-datepicker>
+                </mat-form-field>
+
+                <button class="btn-form" mat-raised-button>{{ 'form.ok' | translate }}</button>
+
+            </form>
+        </div>
+
+
+        <mat-grid-list cols="1" rowHeight="{{chartRow}}">
+            <h3 class="title-chart">{{'chart.global.title' | translate}}</h3>
+            <div class="right">
+                <mat-form-field class="selectOption">
+                    <mat-label>{{'chart.global.data-displayed' | translate}}</mat-label>
+
+                    <mat-select [(ngModel)]="selectedOption" (selectionChange)="doSomething($event)">
+                        <mat-option *ngFor="let option of selectOptions" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <mat-grid-tile>
+                <canvas id="lineChart" width="300" height="300"></canvas>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <mat-list>
+            <h3 mat-subheader>{{'device.linked' | translate}}</h3>
+            <mat-list-item style="margin-bottom: 10px" *ngFor="let device of campaign.campaignsDeviceDto">
+                <mat-icon mat-list-icon>gamepad</mat-icon>
+                <h4 mat-line>{{device.device_id}}</h4>
+                <p matLine>
+                    <span> {{'date.from' | translate}} : {{returnDate(device.date_start)}}
+                        {{'date.to' | translate}}:
+                        {{returnDate(device.date_end)}} </span>
+                    <span> -- {{device.comment}}</span>
+                </p>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+
+        <pre *ngIf="modeDebug">{{ campaign | json }}</pre>
+    </ng-container>
+
+    <ng-container *ngIf="!campaign">
+        <mat-spinner class="spinner-form" *ngIf="!campaign"></mat-spinner>
+    </ng-container>
+
+    <ng-container *ngIf="loading">
+        <mat-spinner class="spinner-form spinner2"></mat-spinner>
+    </ng-container>
+
+</div>

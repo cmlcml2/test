@@ -1,0 +1,60 @@
+{
+    "language": {
+        "fr": "Français",
+        "en": "English"
+    },
+    "date": {
+        "from": "Du",
+        "to": "au"
+    },
+    "menu": {
+        "home": "Accueil",
+        "result": "Résultat",
+        "campaign": "Campagne",
+        "manage": "Gérer campagnes"
+    },
+    "login": {
+        "title": "Connexion",
+        "name": "Nom",
+        "password": "Mot de passe",
+        "errorname": "Veuillez renseigner votre nom",
+        "errorpwd": "Veuillez renseigner votre mot de passe",
+        "button": "Se connecter",
+        "logout": "Se déconnecter"
+    },
+    "device": {
+        "linked": "Capteur attaché"
+    },
+    "result": {
+        "list-title": "Occupation sur la période",
+        "morning": "Matin",
+        "afternoon": "Après-midi"
+    },
+    "chart": {
+        "global": {
+            "title": "Utilisation total par demie journée",
+            "data-displayed": "Data à afficher"
+        }
+    },
+    "form": {
+        "title": "Titre de la campagne",
+        "comment": "Commentaire",
+        "date": "Sélectionnez une date",
+        "datestart": "Sélectionnez une date de début",
+        "dateend": "Sélectionnez une date de fin",
+        "errordate": "Veuillez sélectionner une date",
+        "begtime": "Début",
+        "errorbegtime": "Veuillez renseigner une heure de début",
+        "endtime": "Fin",
+        "errorendtime": "Veuillez renseigner une heure de fin",
+        "timeerror": "L'heure de fin doit être supérieure à l'heure de début",
+        "search": "Rechercher",
+        "next": "Suivant",
+        "select-site": "Sélectionner un site",
+        "valided": "Valider",
+        "ok": "Ok"
+    },
+    "create": {
+        "title": "Création d'une campagne"
+    }
+}

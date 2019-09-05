@@ -1,0 +1,32 @@
+<form [formGroup]="formDevice" (ngSubmit)="onSubmitDevice()" class="form-container">
+    <div>
+        <!-- <div class="form-content" *ngFor="let device of formDevice.controls.devices.controls; let i"> -->
+        <!-- <mat-checkbox formArrayName="devices" [formControlName]="i" class="form-checkbox">
+                {{devices[i].deviceId}}
+            </mat-checkbox> -->
+
+        <!-- <label formArrayName="devices" *ngFor="let device of formDevice.controls.devices.controls; let i = index">
+            <input type="checkbox" [formControlName]="i">
+            {{devices[i].deviceId}}
+        </label> -->
+
+        <div class="form-content" formArrayName="devices"
+            *ngFor="let device of formDevice.controls.devices.controls; let i = index">
+            <mat-checkbox class="form-checkbox" [formControlName]="i" (change)="checkCheckBoxvalue($event,i)">
+                {{devices[i].deviceId}}
+            </mat-checkbox>
+            <mat-form-field class="form-comment">
+                <input matInput placeholder="comment" [formControlName]="" disable>
+            </mat-form-field>
+        </div>
+
+
+
+    </div>
+    <div>
+        <button class="btn-form" mat-raised-button>{{ 'form.valided' | translate }}</button>
+    </div>
+
+    <pre>{{devices | json}}</pre>
+    <pre>{{campaign | json}}</pre>
+</form>
